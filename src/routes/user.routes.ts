@@ -6,6 +6,6 @@ const user = Router();
 
 user.post("/register", createUserController)
 
-user.get("", retriveUserController)
+user.get("/:id", retriveUserController)
 
 export default user
