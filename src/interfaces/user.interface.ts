@@ -22,3 +22,17 @@ export interface IUserResponseCreate {
     is_active:  boolean
     created_at: Date
 }
+
+export interface IUserRequestUpdate {
+    name:     string
+    email:    string
+    celphone: string
+}
+
+export interface IUserResponseUpdate {
+    id:         string
+    name:       string
+    email:      string
+    celphone:   string
+    updated_at: Date
+}
