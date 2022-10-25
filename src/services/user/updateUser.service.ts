@@ -5,7 +5,7 @@ import { IUserRequestUpdate, IUserResponseUpdate } from "../../interfaces/user.i
 
 
 const updateUserService = async (id: string, {name, password, celphone}:IUserRequestUpdate): Promise<IUserResponseUpdate> => {
-    
+
     const userRepository = AppDataSource.getRepository(User)
 
     const user = await userRepository.findOne({ where: { id } })
@@ -18,11 +18,11 @@ const updateUserService = async (id: string, {name, password, celphone}:IUserReq
         name = user.name
     }
     
-      if ( !password ) {
+    if ( !password ) {
         password = user.email
     }
   
-      if ( !celphone ) {
+    if ( !celphone ) {
         celphone = user.celphone
     }
 
