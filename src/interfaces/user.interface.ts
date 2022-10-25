@@ -32,7 +32,7 @@ export interface IUserRequestUpdate {
 export interface IUserResponseUpdate {
     id:         string
     name:       string
-    email:      string
+    password:      string
     celphone:   string
     updated_at: Date
 }
