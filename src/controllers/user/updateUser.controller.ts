@@ -15,3 +15,5 @@ const updateUserController = async (req: Request, res: Response) => {
     })
     
 }
+
+export default updateUserController
