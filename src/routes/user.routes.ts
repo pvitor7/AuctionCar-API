@@ -10,7 +10,7 @@ const user = Router();
 
 user.post("/register", createUserController)
 
-user.get("", AuthMiddleware, retriveUserController)
+user.get("/motor", AuthMiddleware, retriveUserController)
 
 user.get("", listUserController)
 
