@@ -4,17 +4,9 @@ import { AppError } from "../../erros/AppError";
 import { IUserRequestUpdate, IUserResponseUpdate } from "../../interfaces/user.interface";
 
 
-const updateUserService = async (id: string, {name, email, celphone}:IUserRequestUpdate): Promise<IUserResponseUpdate> => {
-
+const updateUserService = async (id: string, {name, password, celphone}:IUserRequestUpdate): Promise<IUserResponseUpdate> => {
+    
     const userRepository = AppDataSource.getRepository(User)
-
-    const users = await userRepository.find()
-
-    const emailAlreadyExisty = users.find(user => user.email === email)
-
-    if ( emailAlreadyExisty ) {
-        throw new AppError("Email alredy existy", 409)
-    }
 
     const user = await userRepository.findOne({ where: { id } })
 
@@ -26,8 +18,8 @@ const updateUserService = async (id: string, {name, email, celphone}:IUserReques
         name = user.name
     }
     
-      if ( !email ) {
-        email = user.email
+      if ( !password ) {
+        password = user.email
     }
   
       if ( !celphone ) {
@@ -37,7 +29,7 @@ const updateUserService = async (id: string, {name, email, celphone}:IUserReques
     const updateUser = {
         id: user.id,
         name: name,
-        email: email,
+        password: password,
         celphone: celphone,
         updated_at: new Date(),
     }
