@@ -3,7 +3,7 @@ import retriveUserService from "../../services/user/retriveUser.service"
 
 const retriveUserController = async (req: Request, res: Response) => {
 
-    const id = req.params.id
+    const id = req.user.id
 
     const user = await retriveUserService(id)
 
