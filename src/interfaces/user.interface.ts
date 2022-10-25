@@ -25,7 +25,7 @@ export interface IUserResponseCreate {
 
 export interface IUserRequestUpdate {
     name:     string
-    email:    string
+    password: string
     celphone: string
 }
 
