@@ -11,3 +11,4 @@ yarn.lock
 .env
 .env.test
 docker-compose.yml
+migrations/
