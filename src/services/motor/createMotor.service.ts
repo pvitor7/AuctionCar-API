@@ -8,7 +8,7 @@ const createVehicleService = async ({heading, status, year, km, price, descripti
 
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
 
-    if ( !heading || !categorie || !status || !year || !km || !price || !description || !published || !img) {
+    if ( !heading || !categorie || !status || !year || !km || !price || !description || !img) {
         throw new AppError("Illegal arguments", 400)
     }
 
