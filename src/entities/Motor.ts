@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, UpdateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./Category";
+import { User } from "./User";
 
 @Entity("vehicle")
 class Vehicle {
@@ -41,6 +42,11 @@ class Vehicle {
         nullable: true
     })
     categorie: Category
+
+    @ManyToOne(type => User, user => user.vehicles,{
+        nullable: true
+    })
+    user: User
 
 }
 

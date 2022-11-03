@@ -1,4 +1,5 @@
 import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm"
+import { Vehicle } from "./Motor"
 
 @Entity("users")
 @Unique(["email"])
@@ -27,6 +28,11 @@ class User {
 
     @UpdateDateColumn()
     updated_at: Date;
+
+    @OneToMany(type => Vehicle, vehicle => vehicle.user, {
+        eager: true
+    })
+    vehicles: Vehicle[]
 
 }
 

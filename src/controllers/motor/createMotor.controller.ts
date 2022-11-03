@@ -3,6 +3,8 @@ import createVehicleService from "../../services/motor/createMotor.service"
 
 const createVehicleController = async (req: Request, res: Response) => {
 
+    const id = req.user.id
+
     const {
         heading,
         status,
@@ -15,7 +17,7 @@ const createVehicleController = async (req: Request, res: Response) => {
         categorie
     } = req.body
 
-    const newVehicle = await createVehicleService({
+    const newVehicle = await createVehicleService(id,{
         heading,
         status,
         year,

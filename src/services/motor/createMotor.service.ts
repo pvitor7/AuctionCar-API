@@ -1,12 +1,22 @@
 import AppDataSource from "../../data-source"
 import { Category } from "../../entities/Category"
 import { Vehicle } from "../../entities/Motor"
+import { User } from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 import { IVehicle, IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
 
-const createVehicleService = async ({heading, status, year, km, price, description, published, img, categorie}:IVehicleRequestCreate): Promise<IVehicleResponseCreate> => {
+const createVehicleService = async (id:string,{heading, status, year, km, price, description, published, img, categorie}:IVehicleRequestCreate): Promise<IVehicleResponseCreate> => {
+
+    const userRepository = AppDataSource.getRepository(User)
 
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
+
+    const user = await userRepository.findOneBy({ id: id });
+
+    
+    if ( !user ) {
+        throw new AppError("User not found", 404);
+    }
 
     if ( !heading || !categorie || !status || !year || !km || !price || !description || !img) {
         throw new AppError("Illegal arguments", 400)
@@ -31,6 +41,7 @@ const createVehicleService = async ({heading, status, year, km, price, descripti
     vehicle.published   = published
     vehicle.img         = img
     vehicle.categorie = category
+    vehicle.user        = user
 
     vehicleRepository.create(vehicle)
     await vehicleRepository.save(vehicle)
