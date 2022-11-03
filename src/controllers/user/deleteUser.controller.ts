@@ -4,7 +4,7 @@ import softDeleteUserService from "../../services/user/deleteUser.service"
 
 const softDeleteController = async (req: Request, res: Response) => {
 
-    const id = req.params.id
+    const id = req.user.id
 
     await softDeleteUserService(id)
 

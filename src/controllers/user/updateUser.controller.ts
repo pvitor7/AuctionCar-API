@@ -3,7 +3,7 @@ import updateUserService from "../../services/user/updateUser.service"
 
 const updateUserController = async (req: Request, res: Response) => {
 
-    const id = req.params.id
+    const id = req.user.id
 
     const {name, password, celphone} = req.body
 

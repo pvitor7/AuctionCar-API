@@ -36,3 +36,8 @@ export interface IUserResponseUpdate {
     celphone:   string
     updated_at: Date
 }
+
+export interface IUserLogin {
+    email:    string
+    password: string
+}
