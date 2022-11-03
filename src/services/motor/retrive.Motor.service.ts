@@ -1,10 +1,10 @@
 import AppDataSource from "../../data-source";
-import { Category } from "../../entities/Category";
+import { Vehicle } from "../../entities/Motor";
 import { AppError } from "../../erros/AppError";
 
 const retriveVehicleService = async (id: string) => {
 
-    const vehicleRepository = AppDataSource.getRepository(Category);
+    const vehicleRepository = AppDataSource.getRepository(Vehicle);
   
     const category = await vehicleRepository.findOne({ 
       where: {
