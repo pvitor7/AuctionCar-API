@@ -17,7 +17,7 @@ const AppDataSource = process.env.NODE_ENV === "test" ?
         password: process.env.DB_PASSWORD,
         database: process.env.DB,
         synchronize: false,
-        logging: true,
+        logging: false,
         entities: ["src/entities/*.ts"],
         migrations: ["src/migrations/*.ts"],
     });

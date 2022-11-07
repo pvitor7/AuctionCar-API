@@ -18,7 +18,6 @@ app.use("/users", user)
 app.use("/login", login)
 app.use("/categorie",category)
 app.use("/vehicle", motor)
-app.use("/login", login)
 
 app.use(handleAppErrorMiddleware)
 

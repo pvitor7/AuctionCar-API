@@ -16,7 +16,8 @@ const createCategoryService = async ({categorie}:ICategoryRequestCreate): Promis
     const categorieAlreadyExisty = categories.find((category) => category.categorie == categorie)
 
     if ( categorieAlreadyExisty ) {
-        throw new AppError("Categorie Already Existy", 409)
+        // throw new AppError("Categorie Already Existy", 409)
+        return categorieAlreadyExisty;
     }
 
     const category = new Category()
