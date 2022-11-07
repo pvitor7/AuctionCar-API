@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, UpdateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./Category";
+import { Comment } from "./comment";
 import { User } from "./User";
 
 @Entity("vehicle")
@@ -47,6 +48,12 @@ class Vehicle {
         nullable: true
     })
     user: User
+
+    @OneToMany(type => Comment, Comment => Comment.user, {
+        eager: true
+    })
+    comments: Comment[]
+    
 
 }
 

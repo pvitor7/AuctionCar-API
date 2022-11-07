@@ -7,7 +7,7 @@ import login from './routes/login.routes';
 import handleAppErrorMiddleware from './middlewares/handleAppErrors.middleware';
 import category from './routes/category.routes';
 import motor from './routes/motor.routes';
-import login from './routes/login.routes';
+
 
 
 const app = express();
