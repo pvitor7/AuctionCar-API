@@ -40,6 +40,7 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     vehicle.description = description
     vehicle.published   = published
     vehicle.img         = img
+    vehicle.user_name   =user.name
     vehicle.categorie = category
     vehicle.user        = user
 
