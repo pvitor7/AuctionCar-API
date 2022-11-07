@@ -62,12 +62,12 @@ yarn typeorm migration:run -d src/data-source.ts
 ### Índice
 
 - [User]()
-  - [POST - /register](#1.1-criação-de-usuário)
+  - [POST - /register](#4.1.-criação-de-usuário)
   - [POST - /login]()
   - [GET - /users]()
   - [GET - /users/motor]()
 
-## 1. **User**
+## 4. **User**
 
 [ Voltar para os Endpoints ](#5-endpoints)
 
@@ -99,7 +99,7 @@ A criação do usuário é definida pelos campos abaixo
 | GET    | /vehicle/:id      | Retorna uma informação sobre um Veiculo usanod sei ID como parâmetro  |
 | DELEET | /vehicle/:id      | Deleta uma Informação sobre um Veiculo usanod sei ID como parâmetro   |
 
-### 1.1. **Criação de Usuario**
+### 4.1. **Criação de Usuario**
 
 ### `/users/register`
 
@@ -150,7 +150,7 @@ Content-type: application/json
 | -------------- | ------------------------- |
 | 400 Bad Request| Illegal arguments.        |
 
-### 1.2. Autenticação
+### 4.2. Autenticação
 
 [ Voltar para o topo ](#tabela-de-conteúdos)
 
@@ -192,7 +192,7 @@ Content-type: application/json
 | -------------- | --------------------- |
 | 404 Not Found  | Account not found.    |
 
-### 1.3. **Listando Usuários**
+### 4.3. **Listando Usuários**
 
 ### `/users`
 
@@ -250,7 +250,7 @@ Vazio
 | --------------- | --------------------------------- |
 | 401 Unathorized | Invalid token.                    |
 
-### 1.4. **Atualizando Usuários**
+### 4.4. **Atualizando Usuários**
 
 ### `/users`
 
@@ -300,7 +300,7 @@ OBS: Todas as informações podem ser atualizados, ou apenas uma
 | --------------- | --------------------------------- |
 | 401 Unathorized | Invalid token.                    |
 
-### 1.5. **Deletando Usuários Especifico**
+### 4.5. **Deletando Usuários Especifico**
 
 ### `/users`
 
@@ -337,7 +337,7 @@ Vazio
 | --------------- | --------------------------------- |
 | 401 Unathorized | Invalid token.                    |
 
-### 1.6. **Listando Usuários Especifico**
+### 4.6. **Listando Usuários Especifico**
 
 ### `/users/motor`
 
@@ -418,9 +418,9 @@ Para listar um único os usuários você precisa estar logado, pois recebera inf
 | 401 Unathorized | Invalid token.                    |
 
 
-## 2. **Categorias**
+## 5. **Categorias**
 
-### 2.1. **Criando Categorias**
+### 5.1. **Criando Categorias**
 
 ### `/categorie`
 
@@ -456,7 +456,7 @@ Content-type: application/json
 }
 ```
 
-### 2.2. **Listando Categorias**
+### 5.2. **Listando Categorias**
 
 ### `/categorie`
 
@@ -498,7 +498,7 @@ Vazio
 ]
 ```
 
-### 2.2. **Listando todos os Veiculos de uma Categorias**
+### 5.3. **Listando todos os Veiculos de uma Categorias**
 
 ### `/categorie/:id`
 
@@ -581,9 +581,9 @@ Vazio
 | --------------- | --------------------------------- |
 | 404 Not Found   | Category not found.               |
 
-## 3. **Veiculos**
+## 6. **Veiculos**
 
-### 3.1. **Criando um Veiculo**
+### 6.1. **Criando um Veiculo**
 
 ### `/vehicle`
 
@@ -641,7 +641,7 @@ Para criar um veiculo é necessario estar logado
 
 
 
-### 3.2. **Listando Veiculos**
+### 6.2. **Listando Veiculos**
 
 ### `/vehicle`
 
@@ -737,7 +737,7 @@ Vazio
 | --------------- | --------------------------------- |
 | 401 Unathorized | Invalid token.                    |
 
-### 3.3. **Listando Veiculos Especificos**
+### 6.3. **Listando Veiculos Especificos**
 
 ### `/vehicle/:id`
 
@@ -784,7 +784,7 @@ Vazio
 | --------------- | --------------------------------- |
 | 404 Not Found   | Category not found.               |
 
-### 3.4. **Deletando Veiculos Especificos**
+### 6.4. **Deletando Veiculos Especificos**
 
 ### `/vehicle/:id`
 
