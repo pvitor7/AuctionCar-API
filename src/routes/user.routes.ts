@@ -14,8 +14,8 @@ user.get("/motor", AuthMiddleware,retriveUserController)
 
 user.get("", listUserController)
 
-user.patch("/:id", updateUserController)
+user.patch("", AuthMiddleware, updateUserController)
 
-user.delete("/:id", softDeleteController)
+user.delete("", AuthMiddleware, softDeleteController)
 
 export default user
