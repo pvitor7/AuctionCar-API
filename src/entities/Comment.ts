@@ -17,6 +17,9 @@ class Comment {
     @UpdateDateColumn()
     updated_at: Date;
 
+    @Column()
+    user_name: string
+
     @ManyToOne(type => Vehicle, vehicle => vehicle.comments,{
         nullable: true
     })
