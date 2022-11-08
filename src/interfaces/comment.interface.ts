@@ -10,3 +10,11 @@ export interface ICommentCreateRequest {
     user_id:         string
     comment:    string
 }
+
+export interface ICommentCreateResponse {
+    id:         string
+    comment:    string
+    user_name: string
+    created_at: Date
+    updated_at: Date
+}

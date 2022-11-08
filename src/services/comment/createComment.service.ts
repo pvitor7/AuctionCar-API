@@ -3,9 +3,9 @@ import { Comment } from "../../entities/Comment";
 import { Vehicle } from "../../entities/Motor";
 import { User } from "../../entities/User";
 import { AppError } from "../../erros/AppError";
-import { ICommentCreateRequest } from "../../interfaces/comment.interface";
+import { ICommentCreateRequest, ICommentCreateResponse } from "../../interfaces/comment.interface";
 
-const createCommentService = async ({comment, user_id, vehicle_id}:ICommentCreateRequest) => {
+const createCommentService = async ({comment, user_id, vehicle_id}:ICommentCreateRequest):Promise<ICommentCreateResponse> => {
 
     const commentRepository = AppDataSource.getRepository(Comment)
     
@@ -31,13 +31,22 @@ const createCommentService = async ({comment, user_id, vehicle_id}:ICommentCreat
 
     const commentary = new Comment()
     commentary.comment  = comment
+    commentary.user_name = user.name
     commentary.vehicles = vehicle
     commentary.user     = user
 
     commentRepository.create(commentary)
     await commentRepository.save(commentary)
 
-    return commentary
+    const commentResponse: ICommentCreateResponse = {
+        id: commentary.id,
+        comment,
+        user_name: user.name,
+        created_at: commentary.created_at,
+        updated_at: commentary.updated_at
+    }
+
+    return commentResponse
 
 }
 
