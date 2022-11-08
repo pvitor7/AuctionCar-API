@@ -5,15 +5,15 @@ import { User } from "../../entities/User";
 import { AppError } from "../../erros/AppError";
 import { ICommentCreateRequest } from "../../interfaces/comment.interface";
 
-const createCommentService = async ({user_comment, user_id, vehicle_id}:ICommentCreateRequest) => {
+const createCommentService = async ({comment, user_id, vehicle_id}:ICommentCreateRequest) => {
 
     const commentRepository = AppDataSource.getRepository(Comment)
     
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
 
     const userRepository = AppDataSource.getRepository(User)
-
-    if ( !user_comment || !user_id || !vehicle_id) {
+    console.log(vehicle_id)
+    if ( !comment || !user_id || !vehicle_id) {
         throw new AppError("Illegal Arguments", 400) 
     }
 
@@ -29,15 +29,15 @@ const createCommentService = async ({user_comment, user_id, vehicle_id}:IComment
         throw new AppError("User not found", 404);
     }
 
-    const comment = new Comment()
-    comment.comment  = user_comment
-    comment.vehicles = vehicle
-    comment.user     = user
+    const commentary = new Comment()
+    commentary.comment  = comment
+    commentary.vehicles = vehicle
+    commentary.user     = user
 
-    commentRepository.create(comment)
-    await commentRepository.save(comment)
+    commentRepository.create(commentary)
+    await commentRepository.save(commentary)
 
-    return comment
+    return commentary
 
 }
 

@@ -8,5 +8,5 @@ export interface IComment {
 export interface ICommentCreateRequest {
     vehicle_id:      string
     user_id:         string
-    user_comment:    string
+    comment:    string
 }

@@ -4,6 +4,6 @@ import { AuthMiddleware } from "../middlewares/VerifyToken.middleware"
 
 const comment = Router()
 
-comment.post("",AuthMiddleware, createCommentController)
+comment.post("/:id",AuthMiddleware, createCommentController)
 
 export default comment

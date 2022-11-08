@@ -7,6 +7,7 @@ import login from './routes/login.routes';
 import handleAppErrorMiddleware from './middlewares/handleAppErrors.middleware';
 import category from './routes/category.routes';
 import motor from './routes/motor.routes';
+import comment from './routes/comment.routes';
 
 
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/users", user)
 app.use("/categorie",category)
 app.use("/vehicle", motor)
+app.use("/comment",comment)
 
 app.use("/login", login)
 
