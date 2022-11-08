@@ -40,3 +40,5 @@ const createCommentService = async ({user_comment, user_id, vehicle_id}:IComment
     return comment
 
 }
+
+export default createCommentService
