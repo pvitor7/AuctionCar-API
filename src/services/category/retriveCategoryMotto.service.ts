@@ -2,16 +2,16 @@ import AppDataSource from "../../data-source";
 import { Category } from "../../entities/Category";
 import { AppError } from "../../erros/AppError";
 
-const retriveCategoryCarService = async () => {
+const retriveCategoryMottoService = async () => {
 
     const categoryRepository = AppDataSource.getRepository(Category);
 
-    const categorie = await categoryRepository.findOneBy({ categorie: "Carro" });
+    const categorie = await categoryRepository.findOneBy({ categorie: "Moto" });
 
     if ( !categorie ) {
         throw new AppError("Category not found", 404);
     }
-
+    
     const id = categorie.id
   
     const category = await categoryRepository.findOne({ 
@@ -27,4 +27,4 @@ const retriveCategoryCarService = async () => {
     return category;
 }
 
-export default retriveCategoryCarService
+export default retriveCategoryMottoService
