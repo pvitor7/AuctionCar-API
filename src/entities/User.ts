@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm"
-import { Comment } from "./comment"
+import { Comment } from "./Comment"
 import { Vehicle } from "./Motor"
 
 @Entity("users")

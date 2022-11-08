@@ -20,7 +20,7 @@ class Comment {
     @ManyToOne(type => Vehicle, vehicle => vehicle.comments,{
         nullable: true
     })
-    vehicle: Vehicle
+    vehicles: Vehicle
 
     @ManyToOne(type => User, user => user.comments,{
         nullable: true
