@@ -13,9 +13,9 @@ category.get("", listCategoryController)
 
 category.get("/list/:id", retriveCategoryController)
 
-category.get("/car", retriveCategoryCarController)
+// category.get("/car", retriveCategoryCarController)
 
-category.get("/motorcycle", retriveCategoryMottoController)
+// category.get("/motto", retriveCategoryMottoController)
 
 category.get("/:name", retriveCategoryController)
 
