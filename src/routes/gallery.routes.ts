@@ -4,7 +4,7 @@ import listGalleryController from "../controllers/gallery/listGallery.controller
 
 const gallery = Router()
 
-gallery.post("", createGalleryController)
+gallery.post("/:id", createGalleryController)
 
 gallery.get("", listGalleryController)
 

@@ -17,7 +17,7 @@ app.use(express.json());
 app.use("/users", user)
 app.use("/categorie",category)
 app.use("/vehicle", motor)
-app.use("gallery",gallery)
+app.use("/gallery",gallery)
 
 app.use("/login", login)
 
