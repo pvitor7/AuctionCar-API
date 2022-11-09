@@ -666,7 +666,7 @@ Vazio
 | --------------- | --------------------------------- |
 | 404 Not Found   | Category not found.               |
 
-### 5.5. **Listando todos os Veiculos da Categorias Carro**
+### 5.5. **Listando todos os Veiculos da Categorias Moto**
 
 ### `/categorie/motto`
 
