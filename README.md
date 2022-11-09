@@ -90,14 +90,6 @@ A criação do usuário é definida pelos campos abaixo
 | GET    | /users            | Lista todos os usuários.                                              |
 | PATCH  | /users            | Atualiza um Usuario usando seu ID como parâmetro                      |
 | DELETE | /users            | Deleta um Usuario usando seu ID como parâmetro                        |
-| GET    | /users/motor      | Lista um Usuario usando seu ID como parâmetro                         |
-| POST   | /categorie        | Criação de uma Categoria                                              |
-| GET    | /categorie        | Lista Todas as Categorias                                             |
-| GET    | /categorie/:id    | Lista Todos os Veiculos de uma Categoria usando seu ID como parâmetro |
-| POST   | /vehicle          | Criação de um Veiculo                                                 |
-| GET    | /vehicle          | Lista Todos os Veiculos                                               |
-| GET    | /vehicle/:id      | Retorna uma informação sobre um Veiculo usanod sei ID como parâmetro  |
-| DELEET | /vehicle/:id      | Deleta uma Informação sobre um Veiculo usanod sei ID como parâmetro   |
 
 ### 4.1. **Criação de Usuario**
 
@@ -420,6 +412,27 @@ Para listar um único os usuários você precisa estar logado, pois recebera inf
 
 ## 5. **Categorias**
 
+A criação de uma categoria é definida pelos campos abaixo
+
+| Campo        | Tipo    | Descrição                                        |
+| ------------ | ------- | ------------------------------------------------ |
+| id           | string  | Identificador único do usuário.                  |
+| categorie    | string  | O nome do usuário.                               |
+
+## Endpoints
+
+| Método | Rota              | Descrição                                                             |
+| ------ | ----------------- | --------------------------------------------------------------------- |
+| GET    | /users/motor      | Lista um Usuario usando seu ID como parâmetro                         |
+| POST   | /categorie        | Criação de uma Categoria                                              |
+| GET    | /categorie        | Lista Todas as Categorias                                             |
+| GET    | /categorie/:id    | Lista Todos os Veiculos de uma Categoria usando seu ID como parâmetro |
+| GET    | /categorie/car    | Lista Todos os Veiculos da Categoria chamada Carro                    |
+| GET    | /categorie/motto  | Lista Todos os Veiculos da Categoria chamada Moto                     |
+
+
+
+
 ### 5.1. **Criando Categorias**
 
 ### `/categorie`
@@ -581,7 +594,177 @@ Vazio
 | --------------- | --------------------------------- |
 | 404 Not Found   | Category not found.               |
 
+### 5.4. **Listando todos os Veiculos da Categorias Carro**
+
+### `/categorie/car`
+
+### Exemplo de Request:
+
+```
+GET /categoire/car
+Host: http://localhost:3000
+Authorization: None
+Content-type: application/json
+```
+
+Para Listar é necessario que o nome da categorie seja Carro
+
+### Corpo da Requisição:
+
+```json
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+	"id": "618d5ae6-3c21-4032-bb03-f683e1683ee0",
+	"categorie": "Carro",
+	"created_at": "2022-11-07T10:26:58.326Z",
+	"updated_at": "2022-11-07T10:26:58.326Z",
+	"vehicles": [
+		{
+			"id": "95b2c9fc-0426-4148-884e-e27b3fb94ec7",
+			"heading": "Carro-1",
+			"status": "Leilão",
+			"year": "2001",
+			"km": "2000",
+			"price": "30000",
+			"description": "lindo e novo",
+			"published": false,
+			"img": "link_image",
+			"user_name": "Shanks",
+			"created_at": "2022-11-08T10:49:27.840Z",
+			"updated_at": "2022-11-08T10:49:27.840Z"
+		},
+		{
+			"id": "3be2afee-817b-4e08-b69e-a3f52f4f55ed",
+			"heading": "Carro-2",
+			"status": "Leilão",
+			"year": "2001",
+			"km": "2000",
+			"price": "30000",
+			"description": "lindo e novo",
+			"published": false,
+			"img": "link_image",
+			"user_name": "Monkey D Luffy",
+			"created_at": "2022-11-08T10:50:13.766Z",
+			"updated_at": "2022-11-08T10:50:13.766Z"
+		}
+	]
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro  | Descrição                         |
+| --------------- | --------------------------------- |
+| 404 Not Found   | Category not found.               |
+
+### 5.5. **Listando todos os Veiculos da Categorias Carro**
+
+### `/categorie/motto`
+
+### Exemplo de Request:
+
+```
+GET /categoire/motto
+Host: http://localhost:3000
+Authorization: None
+Content-type: application/json
+```
+
+Para Listar é necessario que o nome da categorie seja Moto
+
+### Corpo da Requisição:
+
+```json
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+	"id": "849d4123-f9aa-45a6-bbdb-d8126743eb55",
+	"categorie": "Moto",
+	"created_at": "2022-11-07T10:27:04.989Z",
+	"updated_at": "2022-11-07T10:27:04.989Z",
+	"vehicles": [
+		{
+			"id": "dab1f896-8a0f-465d-ae71-6c0f23303095",
+			"heading": "Moto-1",
+			"status": "Leilão",
+			"year": "2001",
+			"km": "2000",
+			"price": "30000",
+			"description": "lindo e novo",
+			"published": false,
+			"img": "link_image",
+			"user_name": "Shanks",
+			"created_at": "2022-11-08T10:49:15.704Z",
+			"updated_at": "2022-11-08T10:49:15.704Z"
+		},
+		{
+			"id": "8a4c9cdf-ba95-4acd-b0fa-0b2af086aa75",
+			"heading": "Moto-2",
+			"status": "Leilão",
+			"year": "2001",
+			"km": "2000",
+			"price": "30000",
+			"description": "lindo e novo",
+			"published": false,
+			"img": "link_image",
+			"user_name": "Monkey D Luffy",
+			"created_at": "2022-11-08T10:50:25.125Z",
+			"updated_at": "2022-11-08T10:50:25.125Z"
+		}
+	]
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro  | Descrição                         |
+| --------------- | --------------------------------- |
+| 404 Not Found   | Category not found.               |
+
 ## 6. **Veiculos**
+
+A criação de um Veiculo é definida pelos campos abaixo
+
+| Campo        | Tipo    | Descrição                                        |
+| ------------ | ------- | ------------------------------------------------ |
+| id           | string  | Identificador único do usuário.                  |
+| heading      | string  | O nome do Veiculo.                               |
+| status       | string  | O tipo de Venda Leilão/Venda.                    |
+| year         | string  | O Ano do Carro.                                  |
+| km           | string  | A Kilometragem do Carro Atualmente.              |
+| price        | string  | O preço minímo do veiculo.                       |
+| description  | string  | O uam breve sescrição sobre o Veiculo.           |
+| published    | boollean| Informa se a publicação está visível ou não.     |
+| img          | string  | A imagem principal do veiculo para.              |
+| categorie    | string  | A categoria principal do veiculo.                |
+
+
+
+## Endpoints
+
+| Método | Rota              | Descrição                                                             |
+| ------ | ----------------- | --------------------------------------------------------------------- |
+| POST   | /vehicle          | Criação de um Veiculo                                                 |
+| GET    | /vehicle          | Lista Todos os Veiculos                                               |
+| GET    | /vehicle/:id      | Retorna uma informação sobre um Veiculo usanod sei ID como parâmetro  |
+| DELETE | /vehicle/:id      | Deleta uma Informação sobre um Veiculo usanod sei ID como parâmetro   |
 
 ### 6.1. **Criando um Veiculo**
 
@@ -782,7 +965,7 @@ Vazio
 
 | Código do Erro  | Descrição                         |
 | --------------- | --------------------------------- |
-| 404 Not Found   | Category not found.               |
+| 404 Not Found   | Veihicle not found.               |
 
 ### 6.4. **Deletando Veiculos Especificos**
 
@@ -818,3 +1001,121 @@ Vazio
 | Código do Erro  | Descrição                         |
 | --------------- | --------------------------------- |
 | 404 Not Found   | Category not found.               |
+
+## 7. **Galeria**
+
+A criação de uma Galeria é definida pelos campos abaixo
+
+| Campo        | Tipo    | Descrição                                        |
+| ------------ | ------- | ------------------------------------------------ |
+| id           | string  | Identificador único do usuário.                  |
+| url          | string  | Um Link da Imagem.                               |
+
+
+
+## Endpoints
+
+| Método | Rota              | Descrição                                                                |
+| ------ | ----------------- | ------------------------------------------------------------------------ |
+| POST   | /gallery/:id      | Adiciona uma imagem a galeria de um veiculo usando seu ID como parâmetro |
+| GET    | /gallery          | Lista Todos as imagens da galeria                                        |
+
+### 7.1. **Adicionado uma imagem a galeria de veiculo**
+
+### `/gallery/:id`
+
+### Exemplo de Request:
+
+```
+GET /gallery/19381458-2c39-48e6-b35a-cd8bc091c3be
+Host: http://localhost:3000
+Authorization: None
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+{
+	"url": "img-1"
+}
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+{
+	"id": "944a0a3c-8ca0-4e22-a3de-d0044b66f246",
+	"url": "img-5"
+}
+```
+
+### Possíveis Erros:
+
+| Código do Erro  | Descrição                         |
+| --------------- | --------------------------------- |
+| 404 Not Found   | Veihicle not found.               |
+
+### 7.2. **Listando Todas as imagens da Galeria**
+
+### `/gallery`
+
+### Exemplo de Request:
+
+```
+GET /gallery
+Host: http://localhost:3000
+Authorization: None
+Content-type: application/json
+```
+
+### Corpo da Requisição:
+
+```json
+Vazio
+```
+
+### Exemplo de Response:
+
+```
+200 OK
+```
+
+```json
+[
+	{
+		"id": "c6a3d2e5-2cfd-48d7-9a35-e7f202141f7b",
+		"url": "img-1",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	},
+	{
+		"id": "2fe021ab-5d5f-41c4-95af-92e68985833e",
+		"url": "img-2",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	},
+	{
+		"id": "cf2ad274-1272-48ed-9f8e-b6fa5ed16649",
+		"url": "img-2",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	},
+	{
+		"id": "14d801c6-d953-40b7-ab6e-9fb2dd1afa90",
+		"url": "img-3",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	},
+	{
+		"id": "eb13d9ae-e75c-4e02-b944-abcb08104978",
+		"url": "img-4",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	},
+	{
+		"id": "944a0a3c-8ca0-4e22-a3de-d0044b66f246",
+		"url": "img-5",
+		"vehicleId": "95b2c9fc-0426-4148-884e-e27b3fb94ec7"
+	}
+]
+```
