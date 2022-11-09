@@ -9,7 +9,7 @@ const createGalleryController = async( req: Request, res: Response ) => {
 
     const photo = await createGalleryService(id,{url})
 
-    return res.json(photo)
+    return res.status(201).json(photo)
 }
 
 export default createGalleryController

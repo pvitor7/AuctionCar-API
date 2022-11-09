@@ -2,9 +2,9 @@ import AppDataSource from "../../data-source"
 import { Gallery } from "../../entities/Gallery"
 import { Vehicle } from "../../entities/Motor"
 import { AppError } from "../../erros/AppError"
-import { IGalleryRequestCreate } from "../../interfaces/gallery.interface"
+import { IGallery, IGalleryRequestCreate } from "../../interfaces/gallery.interface"
 
-const createGalleryService = async ( id:string, {url}:IGalleryRequestCreate) => {
+const createGalleryService = async ( id:string, {url}:IGalleryRequestCreate): Promise<IGallery> => {
 
     const galleryRepository = AppDataSource.getRepository(Gallery)
 
@@ -27,7 +27,12 @@ const createGalleryService = async ( id:string, {url}:IGalleryRequestCreate) => 
     galleryRepository.create(gallery)
     await galleryRepository.save(gallery)
 
-    return gallery
+    const galleryResponse: IGallery = {
+        id: gallery.id,
+        url
+    }
+
+    return galleryResponse
 
 }
 
