@@ -32,6 +32,10 @@ class Vehicle {
     @Column()
     img: string
 
+    @Column()
+    user_name: string
+
+
     @CreateDateColumn()
     created_at: Date
 
