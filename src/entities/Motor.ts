@@ -1,5 +1,6 @@
-import { Column, CreateDateColumn, UpdateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany , ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Category } from "./Category";
+import { Gallery } from "./Gallery";
 import { User } from "./User";
 
 @Entity("vehicle")
@@ -51,6 +52,11 @@ class Vehicle {
         nullable: true
     })
     user: User
+
+    @OneToMany(type => Gallery, gallery => gallery.vehicle, {
+        eager: true
+    })
+    photos: Gallery[]
 
 }
 
