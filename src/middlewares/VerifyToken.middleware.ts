@@ -11,13 +11,9 @@ export const AuthMiddleware = (req: Request, res:Response, next:NextFunction) =>
             message: "Invalid token"
         })
     }
-    
-    
+        
     const splitToken = token.split(" ")[1]
-    
-    console.log(splitToken)
-    console.log(typeof splitToken)
-    
+        
     jwt.verify(splitToken, process.env.SECRET_KEY as string, (error: any, decoded: any) => {
         
         if (error){
@@ -32,7 +28,5 @@ export const AuthMiddleware = (req: Request, res:Response, next:NextFunction) =>
         }
         
         next()
-        
     })
-
 }

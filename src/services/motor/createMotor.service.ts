@@ -13,11 +13,10 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
     
     const user = await userRepository.findOneBy({ id: id });
-    
+
     if ( !user ) {
         throw new AppError("User not found", 404);
     }
-    
     if ( !heading || !categorie || !status || !year || !km || !price || !description || !img) {
         throw new AppError("Illegal arguments", 400)
     }

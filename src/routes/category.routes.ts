@@ -9,6 +9,6 @@ category.post("", createCategoryController)
 
 category.get("", listCategoryController)
 
-category.get("/:id", retriveCategoryController)
+category.get("/:name", retriveCategoryController)
 
 export default category

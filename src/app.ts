@@ -9,7 +9,6 @@ import handleAppErrorMiddleware from './middlewares/handleAppErrors.middleware';
 import category from './routes/category.routes';
 import motor from './routes/motor.routes';
 
-
 const app = express();
 app.use(cors());
 app.use(express.json());
