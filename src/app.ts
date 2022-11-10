@@ -8,6 +8,7 @@ import login from './routes/login.routes';
 import handleAppErrorMiddleware from './middlewares/handleAppErrors.middleware';
 import category from './routes/category.routes';
 import motor from './routes/motor.routes';
+import comment from './routes/comment.routes';
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.use("/users", user)
 app.use("/login", login)
 app.use("/categorie",category)
 app.use("/vehicle", motor)
+app.use("/comment",comment)
 
 app.use(handleAppErrorMiddleware)
 
