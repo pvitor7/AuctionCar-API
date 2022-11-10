@@ -4,33 +4,34 @@ import { Vehicle } from "../../entities/Motor"
 import { User } from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 import { IVehicle, IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
+import createCategoryService from "../category/createCategory.service"
 
 const createVehicleService = async (id:string,{heading, status, year, km, price, description, published, img, categorie}:IVehicleRequestCreate): Promise<IVehicleResponseCreate> => {
-
+    
     const userRepository = AppDataSource.getRepository(User)
-
+    
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
-
+    
     const user = await userRepository.findOneBy({ id: id });
 
-    
     if ( !user ) {
         throw new AppError("User not found", 404);
     }
-
     if ( !heading || !categorie || !status || !year || !km || !price || !description || !img) {
         throw new AppError("Illegal arguments", 400)
     }
+    
+    await createCategoryService({categorie});
 
     const categoryRepository = AppDataSource.getRepository(Category)
     
     const category = await categoryRepository.findOneBy({ categorie: categorie });
+        
+    if ( !category ){
 
-    
-    if ( !category ) {
         throw new AppError("Catgory not found", 404);
     }
-
+    
     const vehicle = new Vehicle()
     vehicle.heading     = heading
     vehicle.status      = status
@@ -40,6 +41,7 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     vehicle.description = description
     vehicle.published   = published
     vehicle.img         = img
+    vehicle.user_name   =user.name
     vehicle.categorie = category
     vehicle.user        = user
 

@@ -9,22 +9,18 @@ const userLoginService = async ({email, password}: IUserLogin) => {
 
     const userRepository = AppDataSource.getRepository(User)
 
-    const account = await userRepository.findOne({
-        where: {
-            email: email
-        }
-    })
-
-    if ( !account ) {
+    const account = await userRepository.findOneBy({email})
+    
+    if (!account ) {
         throw new AppError("Account not found", 404)
     }
-
+    
     const passwordMatch = await compare(password, account.password)
-
+    
     if ( !passwordMatch ) {
         throw new AppError("Wrong email/password", 403)
     }
-
+    
     const token = jwt.sign({
         id: account.id,
         is_active: account.is_active

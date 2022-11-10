@@ -3,6 +3,6 @@ import userLoginController from "../controllers/login"
 
 const login = Router()
 
-login.post("",userLoginController)
+login.post("", userLoginController)
 
 export default login

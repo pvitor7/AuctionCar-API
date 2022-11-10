@@ -3,7 +3,7 @@ import userLoginService from "../../services/login"
 
 const userLoginController = async (req: Request, res: Response) => {
 
-    const {email, password} = req.body
+    const {email, password} = req.body;
 
     const token = await userLoginService({email, password})
 
