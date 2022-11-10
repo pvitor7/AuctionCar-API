@@ -28,7 +28,6 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     const category = await categoryRepository.findOneBy({ categorie: categorie });
         
     if ( !category ){
-
         throw new AppError("Catgory not found", 404);
     }
     
@@ -41,8 +40,10 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     vehicle.description = description
     vehicle.published   = published
     vehicle.img         = img
-    vehicle.user_name   =user.name
-    vehicle.categorie = category
+    vehicle.user_name   = user.name
+    vehicle.user_id     = user.id
+    vehicle.category   = category.categorie
+    vehicle.categorie   = category
     vehicle.user        = user
 
     vehicleRepository.create(vehicle)

@@ -5,7 +5,7 @@ import { AppError } from "../../erros/AppError"
 import { hash } from "bcryptjs"
 import { IUserRequest, IUserResponseCreate } from "../../interfaces/user.interface"
 
-const createUserServive = async ({name, celphone, email, password}:IUserRequest): Promise<IUserResponseCreate> => {
+const createUserServive = async ({name, celphone, email, password, initialsName}:IUserRequest): Promise<IUserResponseCreate> => {
 
     const userRepository = AppDataSource.getRepository(User)
 
@@ -31,6 +31,7 @@ const createUserServive = async ({name, celphone, email, password}:IUserRequest)
     user.email     =  email
     user.password  =  hashedPassword
     user.is_active =  true
+    user.initialsName = initialsName
 
     userRepository.create(user)
     await userRepository.save(user)
