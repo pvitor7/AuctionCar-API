@@ -9,7 +9,7 @@ const createUserServive = async ({name, celphone, email, password, initialsName}
 
     const userRepository = AppDataSource.getRepository(User)
 
-    if ( !name || !email || !password || !celphone) {
+    if ( !name || !email || !password || !celphone || !initialsName) {
 
         throw new AppError("Illegal arguments", 400)
 

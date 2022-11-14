@@ -5,7 +5,7 @@ const listCategoryService = async ():Promise<Category[]> => {
 
     const categoryRepository = AppDataSource.getRepository(Category)
 
-    const category = categoryRepository.query('select * from categoty')
+    const category = categoryRepository.query('select * from category')
 
     return category
 }
