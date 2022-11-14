@@ -22,6 +22,9 @@ class User {
     password: string
 
     @Column()
+    initialsName: string
+
+    @Column()
     is_active: boolean
 
     @CreateDateColumn()

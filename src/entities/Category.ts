@@ -1,7 +1,7 @@
 import {Column, PrimaryGeneratedColumn, Entity, CreateDateColumn, UpdateDateColumn, OneToMany} from "typeorm"
 import { Vehicle } from "./Motor";
 
-@Entity("categoty")
+@Entity("category")
 class Category {
 
     @PrimaryGeneratedColumn("uuid")

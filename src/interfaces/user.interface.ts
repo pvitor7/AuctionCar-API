@@ -12,6 +12,7 @@ export interface IUserRequest {
     celphone: string
     email:    string
     password: string
+    initialsName: string
 }
 
 export interface IUserResponseCreate {

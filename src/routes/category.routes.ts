@@ -11,12 +11,15 @@ category.post("", createCategoryController)
 
 category.get("", listCategoryController)
 
+
+category.get("/:name", retriveCategoryController)
+
 category.get("/list/:id", retriveCategoryController)
 
 // category.get("/car", retriveCategoryCarController)
 
 // category.get("/motto", retriveCategoryMottoController)
 
-category.get("/:name", retriveCategoryController)
+category.get("/motorcycle", retriveCategoryMottoController)
 
 export default category

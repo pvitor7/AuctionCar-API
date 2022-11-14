@@ -37,6 +37,11 @@ class Vehicle {
     @Column()
     user_name: string
 
+    @Column()
+    user_id: string
+
+    @Column()
+    category: string
 
     @CreateDateColumn()
     created_at: Date
