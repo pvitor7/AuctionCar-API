@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import deleteVehicleService from "../../services/motor/deleteMotor.service"
+import deleteVehicleService from "../../services/vehicle/deleteVehicle.service"
 
 const deleteVehicleController = async (req: Request, res: Response) => {
 

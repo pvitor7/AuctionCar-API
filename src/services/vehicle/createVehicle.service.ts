@@ -1,9 +1,9 @@
 import AppDataSource from "../../data-source"
-import { Category } from "../../entities/Category"
-import { Vehicle } from "../../entities/Motor"
-import { User } from "../../entities/User"
+import Category from "../../entities/Category"
+import Vehicle from "../../entities/Vehicle"
+import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
-import { IVehicle, IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
+import { IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
 import createCategoryService from "../category/createCategory.service"
 
 const createVehicleService = async (id:string,{heading, status, year, km, price, description, published, img, categorie}:IVehicleRequestCreate): Promise<IVehicleResponseCreate> => {
@@ -28,12 +28,12 @@ const createVehicleService = async (id:string,{heading, status, year, km, price,
     const category = await categoryRepository.findOneBy({ categorie: categorie });
         
     if ( !category ){
-        throw new AppError("Catgory not found", 404);
+        throw new AppError("Category not found", 404);
     }
     
     const vehicle = new Vehicle()
     vehicle.heading     = heading
-    vehicle.status      = status
+    vehicle.status      = status? true: false;
     vehicle.year        = year
     vehicle.km          = km
     vehicle.price       = price

@@ -5,7 +5,7 @@ import { AuthMiddleware } from "../middlewares/VerifyToken.middleware"
 
 const comment = Router()
 
-comment.post("/:id",AuthMiddleware, createCommentController)
+comment.post("/:id", AuthMiddleware, createCommentController)
 
 comment.get("", listCommentController)
 

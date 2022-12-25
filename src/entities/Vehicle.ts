@@ -1,8 +1,9 @@
 import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { Category } from "./Category";
-import { Comment } from "./Comment";
-import { Gallery } from "./Gallery";
-import { User } from "./User";
+import Category from "./Category";
+import Comment from "./Comment";
+import Gallery from "./Gallery";
+import User from "./User";
+import Offers from "./Offers";
 
 @Entity("vehicle")
 class Vehicle {
@@ -14,7 +15,7 @@ class Vehicle {
     heading: string
 
     @Column()
-    status: string
+    status: boolean
 
     @Column()
     year: string
@@ -69,7 +70,8 @@ class Vehicle {
     })
     photos: Gallery[]
     
-
+    @OneToMany(type => Offers, offer => offer.vehicle, {eager: true})
+    offers: Offers[];
 }
 
-export { Vehicle }
+export default Vehicle;

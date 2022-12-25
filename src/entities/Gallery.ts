@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-import { Vehicle } from "./Motor"
+import Vehicle from "./Vehicle"
 
 
 @Entity("gallery")
@@ -18,4 +18,4 @@ class Gallery {
 
 }
 
-export { Gallery }
+export default Gallery;

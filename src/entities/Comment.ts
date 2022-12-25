@@ -1,6 +1,6 @@
 import {Column, PrimaryGeneratedColumn, Entity, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne} from "typeorm"
-import { Vehicle } from "./Motor";
-import { User } from "./User";
+import Vehicle from "./Vehicle";
+import User from "./User";
 
 @Entity("comment")
 class Comment {
@@ -32,4 +32,4 @@ class Comment {
 
 }
 
-export { Comment }
+export default Comment;

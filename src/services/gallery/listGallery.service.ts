@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { Gallery } from "../../entities/Gallery";
+import Gallery from "../../entities/Gallery";
 
 const listGalleryService = async (): Promise<Gallery[]> => {
 

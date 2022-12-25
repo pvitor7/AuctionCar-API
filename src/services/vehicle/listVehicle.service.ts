@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source"
-import { Vehicle } from "../../entities/Motor";
+import Vehicle from "../../entities/Vehicle";
 
 const listVehicleService = async ():Promise<Vehicle[]> => {
 

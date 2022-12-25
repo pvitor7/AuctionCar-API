@@ -1,15 +1,14 @@
-import { v4 as uuidv4 } from "uuid"
 import  AppDataSource  from "../../data-source"
-import { User } from "../../entities/User"
+import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 import { hash } from "bcryptjs"
 import { IUserRequest, IUserResponseCreate } from "../../interfaces/user.interface"
 
-const createUserServive = async ({name, celphone, email, password, initialsName}:IUserRequest): Promise<IUserResponseCreate> => {
+const createUserServive = async ({name, celphone, email, password}:IUserRequest): Promise<IUserResponseCreate> => {
 
     const userRepository = AppDataSource.getRepository(User)
 
-    if ( !name || !email || !password || !celphone || !initialsName) {
+    if ( !name || !email || !password || !celphone ) {
 
         throw new AppError("Illegal arguments", 400)
 
@@ -31,7 +30,6 @@ const createUserServive = async ({name, celphone, email, password, initialsName}
     user.email     =  email
     user.password  =  hashedPassword
     user.is_active =  true
-    user.initialsName = initialsName
 
     userRepository.create(user)
     await userRepository.save(user)

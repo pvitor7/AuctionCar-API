@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source"
-import { Vehicle } from "../../entities/Motor"
+import Vehicle from "../../entities/Vehicle"
 import { AppError } from "../../erros/AppError"
 
 export const deleteVehicleService = async (id: string) => {

@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { Comment } from "../../entities/Comment";
+import Comment from "../../entities/Comment";
 
 const listCommentsService = async (): Promise<Comment[]> => {
 

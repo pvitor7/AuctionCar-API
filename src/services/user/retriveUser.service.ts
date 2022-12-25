@@ -1,11 +1,6 @@
 import AppDataSource from "../../data-source"
-import { User } from "../../entities/User"
+import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
-import listVehicleService from '../motor/listMotors.service';
-import listVehicleController from '../../controllers/motor/ListMotors.controller';
-
-
-import { Vehicle } from "../../entities/Motor";
 
 const retriveUserService = async (id: string) => {
 

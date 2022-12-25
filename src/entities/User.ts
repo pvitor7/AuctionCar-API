@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, UpdateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, Unique } from "typeorm"
-import { Comment } from "./Comment"
-import { Vehicle } from "./Motor"
+import Comment from "./Comment"
+import Vehicle from "./Vehicle"
+import Offers from "./Offers"
 
 @Entity("users")
 @Unique(["email"])
@@ -22,9 +23,6 @@ class User {
     password: string
 
     @Column()
-    initialsName: string
-
-    @Column()
     is_active: boolean
 
     @CreateDateColumn()
@@ -43,6 +41,11 @@ class User {
     })
     comments: Comment[]
 
+    @OneToMany(type => Offers, offer => offer.vehicle, {
+        eager: true
+    })
+    offers: Offers[]
+
 }
 
-export { User }
+export default User;

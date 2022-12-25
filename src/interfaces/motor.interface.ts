@@ -14,7 +14,7 @@ export interface IVehicle {
 
 export interface IVehicleRequestCreate {
     heading:     string
-    status:      string
+    status:      boolean
     year:        string
     km:          string
     price:       string
@@ -32,7 +32,7 @@ export interface Categorie {
 export interface IVehicleResponseCreate  {
     id:          string
     heading:     string
-    status:      string
+    status:      boolean
     year:        string
     km:          string
     price:       string

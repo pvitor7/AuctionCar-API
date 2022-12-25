@@ -1,7 +1,7 @@
 import AppDataSource from "../../data-source";
-import { Comment } from "../../entities/Comment";
-import { Vehicle } from "../../entities/Motor";
-import { User } from "../../entities/User";
+import Comment from "../../entities/Comment";
+import Vehicle from "../../entities/Vehicle";
+import User from "../../entities/User";
 import { AppError } from "../../erros/AppError";
 import { ICommentCreateRequest, ICommentCreateResponse } from "../../interfaces/comment.interface";
 
@@ -12,7 +12,6 @@ const createCommentService = async ({comment, user_id, vehicle_id}:ICommentCreat
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
 
     const userRepository = AppDataSource.getRepository(User)
-    console.log(vehicle_id)
     if ( !comment || !user_id || !vehicle_id) {
         throw new AppError("Illegal Arguments", 400) 
     }

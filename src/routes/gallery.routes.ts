@@ -1,10 +1,11 @@
 import { Router } from "express"
 import createGalleryController from "../controllers/gallery/createGallery.controller"
 import listGalleryController from "../controllers/gallery/listGallery.controller"
+import { AuthMiddleware } from "../middlewares/VerifyToken.middleware"
 
 const gallery = Router()
 
-gallery.post("/:id", createGalleryController)
+gallery.post("/:id", AuthMiddleware, createGalleryController)
 
 gallery.get("", listGalleryController)
 

@@ -1,14 +1,14 @@
 import { compare } from "bcryptjs"
 import AppDataSource from "../../data-source"
 import jwt from "jsonwebtoken"
-import { User } from "../../entities/User"
+import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 import { IUserLogin } from "../../interfaces/user.interface"
 
 const userLoginService = async ({email, password}: IUserLogin) => {
 
     const userRepository = AppDataSource.getRepository(User)
-
+    
     const account = await userRepository.findOneBy({email})
     
     if (!account ) {
@@ -27,7 +27,7 @@ const userLoginService = async ({email, password}: IUserLogin) => {
     },
     process.env.SECRET_KEY as string,
     {
-        expiresIn: "1h"
+        expiresIn: "24h"
     })
 
     return token

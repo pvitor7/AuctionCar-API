@@ -7,9 +7,10 @@ import user from './routes/user.routes';
 import login from './routes/login.routes';
 import handleAppErrorMiddleware from './middlewares/handleAppErrors.middleware';
 import category from './routes/category.routes';
-import motor from './routes/motor.routes';
+import motor from './routes/vehicle.routes';
 import comment from './routes/comment.routes';
 import gallery from './routes/gallery.routes';
+import offer from './routes/offer.routes';
 
 
 const app = express();
@@ -18,12 +19,12 @@ app.use(express.json());
 
 app.use("/users", user)
 app.use("/login", login)
-app.use("/categorie",category)
+app.use("/categorie", category)
 app.use("/vehicle", motor)
+app.use("/offers", offer)
 
-app.use("/comment",comment)
-app.use("/gallery",gallery)
-
+app.use("/comment", comment)
+app.use("/gallery", gallery)
 
 app.use(handleAppErrorMiddleware)
 

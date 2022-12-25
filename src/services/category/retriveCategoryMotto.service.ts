@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { Category } from "../../entities/Category";
+import Category from "../../entities/Category";
 import { AppError } from "../../erros/AppError";
 
 const retriveCategoryMottoService = async () => {
