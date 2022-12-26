@@ -33,22 +33,28 @@ class Vehicle {
     published: boolean
 
     @Column()
+    auction: boolean
+
+    @Column()
     img: string
 
     @Column()
-    user_name: string
+    username: string
 
     @Column()
-    user_id: string
+    userId: string
 
     @Column()
     category: string
 
+    @Column()
+    dateAuction?: Date
+
     @CreateDateColumn()
-    created_at: Date
+    createdAt: Date
 
     @UpdateDateColumn()
-    updated_at: Date
+    updatedAt: Date
 
     @ManyToOne(type => Category, category => category.vehicles,{
         nullable: true

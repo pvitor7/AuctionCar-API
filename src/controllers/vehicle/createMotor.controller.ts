@@ -1,5 +1,6 @@
 import { Request, Response} from "express"
 import createVehicleService from "../../services/vehicle/createVehicle.service"
+import { IVehicleRequestCreate } from "../../interfaces/motor.interface"
 
 const createVehicleController = async (req: Request, res: Response) => {
 
@@ -13,11 +14,13 @@ const createVehicleController = async (req: Request, res: Response) => {
         price,
         description,
         published,
+        auction,
         img,
-        categorie
+        categorie,
+        dateAuction
     } = req.body
 
-    const newVehicle = await createVehicleService(id,{
+    const newVehicle = await createVehicleService(id, {
         heading,
         status,
         year,
@@ -25,8 +28,10 @@ const createVehicleController = async (req: Request, res: Response) => {
         price,
         description,
         published,
-        img, 
-        categorie
+        auction,
+        img,
+        categorie,
+        dateAuction
     })
 
     return res.status(201).json(newVehicle)

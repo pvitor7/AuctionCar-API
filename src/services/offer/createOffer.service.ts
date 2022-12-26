@@ -12,20 +12,20 @@ const createOfferService = async (
   
   const vehicleExists = await VehicleRepository.findOne(vehicleId);
   
-  console.log(vehicleExists[0])
     if (!vehicleExists) {
       throw new AppError("Vehicle not found", 400);
     }
-    
-    
-    
+        
+    if(Number(vehicleExists[0].price) / 2 > offer){
+      throw new AppError("Os lance não pode ser inferior a metade do valor de venda", 400);   
+    }
+
     vehicleExists[0].offers.map((element) => { 
+
       if(Number(element.offer) + 99 > offer){
         throw new AppError("O lance deve ser pelo menos R$ 100,00 maior do que o anterior", 400);   
       }
     });
-    console.log(offer)
-    console.log("passou")
     
     const newOffer = new Offers();
     newOffer.offer = offer;

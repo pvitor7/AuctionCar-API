@@ -8,8 +8,8 @@ export interface IVehicle {
     description: string
     published:   boolean
     img:         string
-    created_at: Date
-    updated_at: Date
+    createdAt:    Date
+    updatedAt:    Date
 }
 
 export interface IVehicleRequestCreate {
@@ -20,8 +20,10 @@ export interface IVehicleRequestCreate {
     price:       string
     description: string
     published:   boolean
+    auction:    boolean
     img:         string
     categorie:   string
+    dateAuction?:   Date
 }
 
 export interface Categorie {
@@ -38,7 +40,9 @@ export interface IVehicleResponseCreate  {
     price:       string
     description: string
     published:   boolean
+    auction?:     boolean
     img:         string
-    crated_at:   Date
-    categorie: Categorie
+    cratedAt:    Date
+    categorie:    Categorie
+    dateAuction?: Date
 }
