@@ -3,9 +3,7 @@ import createVehicleService from "../../services/vehicle/createVehicle.service"
 import { IVehicleRequestCreate } from "../../interfaces/motor.interface"
 
 const createVehicleController = async (req: Request, res: Response) => {
-
     const id = req.user.id
-
     const {
         heading,
         status,
@@ -16,6 +14,7 @@ const createVehicleController = async (req: Request, res: Response) => {
         published,
         auction,
         img,
+        gallery,
         categorie,
         dateAuction
     } = req.body
@@ -29,7 +28,8 @@ const createVehicleController = async (req: Request, res: Response) => {
         description,
         published,
         auction,
-        img,
+        img, 
+        gallery,        
         categorie,
         dateAuction
     })

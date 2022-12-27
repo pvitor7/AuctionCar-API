@@ -22,6 +22,7 @@ export interface IVehicleRequestCreate {
     published:   boolean
     auction:    boolean
     img:         string
+    gallery:       string[]
     categorie:   string
     dateAuction?:   Date
 }
@@ -42,6 +43,7 @@ export interface IVehicleResponseCreate  {
     published:   boolean
     auction?:     boolean
     img:         string
+    gallery:       string[]
     cratedAt:    Date
     categorie:    Categorie
     dateAuction?: Date

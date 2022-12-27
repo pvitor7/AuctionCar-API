@@ -5,6 +5,7 @@ import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 import { IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
 import createCategoryService from "../category/createCategory.service"
+import createGalleryService from "../gallery/createGallery.service"
 
 const createVehicleService = async (id:string,{
     heading,
@@ -16,6 +17,7 @@ const createVehicleService = async (id:string,{
     published,
     auction,
     img,
+    gallery,
     categorie,
     dateAuction
     }:IVehicleRequestCreate): Promise<IVehicleResponseCreate> => {
@@ -62,9 +64,11 @@ const createVehicleService = async (id:string,{
 
     
     vehicleRepository.create(vehicle)
-    console.log("vehicle")
-    const teste = await vehicleRepository.save(vehicle)
-    console.log(teste)
+    const newVehicle = await vehicleRepository.save(vehicle)
+    
+    if(gallery){ 
+        gallery.map(async url => await createGalleryService(newVehicle.id,{url}))
+    }
 
     const vehicleResponse: IVehicleResponseCreate = {
         id: vehicle.id,
@@ -77,6 +81,7 @@ const createVehicleService = async (id:string,{
         published,
         dateAuction,
         img,
+        gallery,
         cratedAt:  vehicle.createdAt,
         categorie: {
             id: category.id,

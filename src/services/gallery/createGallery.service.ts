@@ -10,14 +10,20 @@ const createGalleryService = async ( id:string, {url}:IGalleryRequestCreate): Pr
 
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
 
+
     if( !url || !id ) {
         throw new AppError("Illegal Arguments", 400)
     }
 
     const vehicle = await vehicleRepository.findOneBy({ id: id })
 
+    
     if ( !vehicle ) {
         throw new AppError("Vehicle not found", 404)
+    }
+    
+    if(vehicle.photos.length >= 9){
+        throw new AppError("O veículo só pode possuir até 9 fotos", 404)
     }
 
     const gallery = new Gallery()
