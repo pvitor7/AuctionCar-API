@@ -19,7 +19,7 @@ const createUserServive = async ({name, celphone, email, password}:IUserRequest)
     const emailAlreadyExisty = users.find(user => user.email === email)
 
     if ( emailAlreadyExisty ) {
-        throw new AppError("Email alredy existy", 409)
+        throw new AppError("Email já cadastrado.", 409)
     }
 
     const hashedPassword = await hash(password, 10);

@@ -11,7 +11,7 @@ const updateUserService = async (id: string, {name, password, celphone}:IUserReq
     const user = await userRepository.findOne({ where: { id } })
 
     if (!user) {
-        throw new AppError("User not found.", 404)
+        throw new AppError("Usuário não encontrado!", 404)
     }
 
     if ( !name ) {

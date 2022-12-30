@@ -12,13 +12,13 @@ const userLoginService = async ({email, password}: IUserLogin) => {
     const account = await userRepository.findOneBy({email})
     
     if (!account ) {
-        throw new AppError("Account not found", 404)
+        throw new AppError("Usuário ou senha inválidos!", 404)
     }
     
     const passwordMatch = await compare(password, account.password)
     
     if ( !passwordMatch ) {
-        throw new AppError("Wrong email/password", 403)
+        throw new AppError("Usuário ou senha inválidos!", 403)
     }
     
     const token = jwt.sign({

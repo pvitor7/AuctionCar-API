@@ -4,26 +4,27 @@ import Vehicle from "../../entities/Vehicle"
 import { AppError } from "../../erros/AppError"
 import { IGallery, IGalleryRequestCreate } from "../../interfaces/gallery.interface"
 
-const createGalleryService = async ( id:string, {url}:IGalleryRequestCreate): Promise<IGallery> => {
+const createGalleryService = async ( idUser: string, id:string, {url}:IGalleryRequestCreate): Promise<IGallery> => {
 
     const galleryRepository = AppDataSource.getRepository(Gallery)
-
     const vehicleRepository = AppDataSource.getRepository(Vehicle)
 
-
     if( !url || !id ) {
-        throw new AppError("Illegal Arguments", 400)
+        throw new AppError("Dados inválidos", 400)
     }
 
     const vehicle = await vehicleRepository.findOneBy({ id: id })
 
-    
     if ( !vehicle ) {
-        throw new AppError("Vehicle not found", 404)
+        throw new AppError("Veículo não encontrado!", 404)
     }
     
-    if(vehicle.photos.length >= 9){
-        throw new AppError("O veículo só pode possuir até 9 fotos", 404)
+    if(vehicle.userId != idUser){
+        throw new AppError("Usuário não autorizado!", 403)
+    }
+
+    if(vehicle.photos.length >= 12){
+        throw new AppError("O veículo só pode possuir até 12 fotos", 404)
     }
 
     const gallery = new Gallery()

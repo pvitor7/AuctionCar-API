@@ -19,7 +19,7 @@ class OffersRepository{
         return await this.OffersRepo.find({where: {vehicle: vehicle}});
     }
 
-    static async findBy(id: any){
+    static async findBy(id: Vehicle){
         return await this.OffersRepo.find({where: {vehicle: id}});
     }
 }

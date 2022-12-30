@@ -6,6 +6,7 @@ import { AppError } from "../../erros/AppError"
 import { IVehicleRequestCreate, IVehicleResponseCreate } from "../../interfaces/motor.interface"
 import createCategoryService from "../category/createCategory.service"
 import createGalleryService from "../gallery/createGallery.service"
+import CategoryRepository from "../../repositories/category.repository"
 
 const createVehicleService = async (id:string,{
     heading,
@@ -35,14 +36,10 @@ const createVehicleService = async (id:string,{
         throw new AppError("Illegal arguments", 400)
     }
 
-    await createCategoryService({categorie});
-
-    const categoryRepository = AppDataSource.getRepository(Category)
-    
-    const category = await categoryRepository.findOneBy({ categorie: categorie });
+    const category = await CategoryRepository.findOneByCategory(categorie);
         
     if ( !category ){
-        throw new AppError("Category not found", 404);
+        throw new AppError("Categoria não encontrada.", 404);
     }
     
     const vehicle = new Vehicle
@@ -65,9 +62,10 @@ const createVehicleService = async (id:string,{
     
     vehicleRepository.create(vehicle)
     const newVehicle = await vehicleRepository.save(vehicle)
+    createGalleryService(id, newVehicle.id,{url: img})
     
     if(gallery){ 
-        gallery.map(async url => await createGalleryService(newVehicle.id,{url}))
+        gallery.map(async url => await createGalleryService(id, newVehicle.id,{url}))
     }
 
     const vehicleResponse: IVehicleResponseCreate = {

@@ -13,7 +13,7 @@ class VehicleRepository {
     return await this.VehicleRepo.save(vehicle);
   }
 
-  static async findOne(id: any) {
+  static async findOne(id: string) {
 
     return await this.VehicleRepo.find({where: {id: id}});
   }
