@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { Category } from "../../entities/Category";
+import Category from "../../entities/Category";
 import { AppError } from "../../erros/AppError";
 import { ICategoryRequestCreate, ICategoryResponseCreate } from "../../interfaces/category.interface";
 
@@ -16,7 +16,6 @@ const createCategoryService = async ({categorie}:ICategoryRequestCreate): Promis
     const categorieAlreadyExisty = categories.find((category) => category.categorie == categorie)
 
     if ( categorieAlreadyExisty ) {
-        // throw new AppError("Categorie Already Existy", 409)
         return categorieAlreadyExisty;
     }
 

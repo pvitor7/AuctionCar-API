@@ -8,20 +8,23 @@ export interface IVehicle {
     description: string
     published:   boolean
     img:         string
-    created_at: Date
-    updated_at: Date
+    createdAt:    Date
+    updatedAt:    Date
 }
 
 export interface IVehicleRequestCreate {
     heading:     string
-    status:      string
+    status:      boolean
     year:        string
     km:          string
     price:       string
     description: string
     published:   boolean
+    auction:    boolean
     img:         string
+    gallery:       string[]
     categorie:   string
+    dateAuction?:   Date
 }
 
 export interface Categorie {
@@ -32,13 +35,16 @@ export interface Categorie {
 export interface IVehicleResponseCreate  {
     id:          string
     heading:     string
-    status:      string
+    status:      boolean
     year:        string
     km:          string
     price:       string
     description: string
     published:   boolean
+    auction?:     boolean
     img:         string
-    crated_at:   Date
-    categorie: Categorie
+    gallery:       string[]
+    cratedAt:    Date
+    categorie:    Categorie
+    dateAuction?: Date
 }

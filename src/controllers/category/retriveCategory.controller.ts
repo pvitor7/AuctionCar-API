@@ -1,11 +1,11 @@
 import {Request, Response } from "express"
-import retriveVehicleService from "../../services/category/retriveCategory.seervice"
+import retriveVehicleService from "../../services/category/retriveCategory.service"
 
 const retriveCategoryController = async (req: Request, res: Response) => {
 
-    const id = req.params.id
+    const name = req.params.name
 
-    const user = await retriveVehicleService(id)
+    const user = await retriveVehicleService(name)
 
     return res.status(200).json(user)
 }

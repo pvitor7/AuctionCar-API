@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source"
-import { User } from "../../entities/User"
+import User from "../../entities/User"
 import { AppError } from "../../erros/AppError"
 
 
@@ -10,11 +10,11 @@ const softDeleteUserService = async (id:string) => {
     const user = await userRepository.findOneBy({id: id})
 
     if ( !user ) {
-        throw new AppError("User not found", 404)
+        throw new AppError("Usuário não encontrado!", 404)
     }
 
     if (!user.is_active) {
-        throw new AppError("Inactive user", 404)
+        throw new AppError("Usuário desativado.", 404)
     }
 
     user.is_active = false

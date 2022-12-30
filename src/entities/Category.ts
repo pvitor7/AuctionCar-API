@@ -1,7 +1,7 @@
 import {Column, PrimaryGeneratedColumn, Entity, CreateDateColumn, UpdateDateColumn, OneToMany} from "typeorm"
-import { Vehicle } from "./Motor";
+import Vehicle from "./Vehicle";
 
-@Entity("categoty")
+@Entity("category")
 class Category {
 
     @PrimaryGeneratedColumn("uuid")
@@ -23,4 +23,4 @@ class Category {
 
 }
 
-export { Category }
+export default Category;

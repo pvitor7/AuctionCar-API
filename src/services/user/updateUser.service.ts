@@ -1,5 +1,5 @@
 import AppDataSource from "../../data-source";
-import { User } from "../../entities/User";
+import User from "../../entities/User";
 import { AppError } from "../../erros/AppError";
 import { IUserRequestUpdate, IUserResponseUpdate } from "../../interfaces/user.interface";
 
@@ -11,7 +11,7 @@ const updateUserService = async (id: string, {name, password, celphone}:IUserReq
     const user = await userRepository.findOne({ where: { id } })
 
     if (!user) {
-        throw new AppError("User not found.", 404)
+        throw new AppError("Usuário não encontrado!", 404)
     }
 
     if ( !name ) {
