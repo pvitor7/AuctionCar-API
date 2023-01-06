@@ -13,8 +13,8 @@ class Category {
     @CreateDateColumn()
     created_at: Date
 
-    @UpdateDateColumn()
-    updated_at: Date;
+    // @UpdateDateColumn()
+    // updated_at: Date;
 
     @OneToMany(type => Vehicle, vehicle => vehicle.categorie, {
         eager: true

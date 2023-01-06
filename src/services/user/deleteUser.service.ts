@@ -13,11 +13,11 @@ const softDeleteUserService = async (id:string) => {
         throw new AppError("Usuário não encontrado!", 404)
     }
 
-    if (!user.is_active) {
+    if (!user.buyer) {
         throw new AppError("Usuário desativado.", 404)
     }
 
-    user.is_active = false
+    user.buyer = false
 
     await userRepository.save(user)
     

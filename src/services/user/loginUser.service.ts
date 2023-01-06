@@ -23,7 +23,7 @@ const userLoginService = async ({email, password}: IUserLogin) => {
     
     const token = jwt.sign({
         id: account.id,
-        is_active: account.is_active
+        buyer: account.buyer
     },
     process.env.SECRET_KEY as string,
     {

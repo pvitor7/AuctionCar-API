@@ -1,8 +1,6 @@
 export interface ICategory {
     id:         string
     categorie:  string
-    created_at: Date
-    updated_at: Date
 }
 
 export interface ICategoryRequestCreate {

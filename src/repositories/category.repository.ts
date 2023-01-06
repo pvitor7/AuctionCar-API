@@ -3,7 +3,7 @@ import Category from "../entities/Category";
 
 class CategoryRepository{
 
-    static CategoryRepo = AppDataSource.getMongoRepository(Category);
+    static CategoryRepo = AppDataSource.getRepository(Category);
 
     static async find(){
         return await this.CategoryRepo.find();

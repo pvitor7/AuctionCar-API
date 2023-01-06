@@ -17,6 +17,14 @@ class VehicleRepository {
 
     return await this.VehicleRepo.find({where: {id: id}});
   }
+
+  static async update(id: string, vehicle: any) {
+   return await this.VehicleRepo.update(id , {...vehicle});
+  }
+
+  static async delete(id: string) {
+    return await this.VehicleRepo.delete({ id });
+   }
 }
 
 export default VehicleRepository;

@@ -67,16 +67,19 @@ class Vehicle {
     user: User
 
     @OneToMany(type => Comment, Comment => Comment.vehicles, {
+        cascade: true,
         eager: true
     })
     comments: Comment[]
     
     @OneToMany(type => Gallery, gallery => gallery.vehicle, {
+        cascade: true,
         eager: true
     })
     photos: Gallery[]
     
-    @OneToMany(type => Offers, offer => offer.vehicle, {eager: true})
+    @OneToMany(type => Offers, offer => offer.vehicle, {
+        cascade: true, eager: true})
     offers: Offers[];
 }
 
