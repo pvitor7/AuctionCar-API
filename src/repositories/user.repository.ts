@@ -10,9 +10,8 @@ class UserRepository{
     }
     
     static async create(user: User){
-        const users = AppDataSource.getRepository(User);
-        users.create(user);
-        return await users.save(user);
+        this.UserRepo.create(user);
+        return await this.UserRepo.save(user);
     }
 
     static async findByEmail(email: string){

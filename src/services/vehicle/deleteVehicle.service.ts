@@ -10,14 +10,11 @@ export const deleteVehicleService = async (id: string) => {
     if( !vehicle[0] ) {
         throw new AppError("Vehicle not found", 404)
     }
+        
+    await VehicleRepository.update(vehicle[0].id, {status: false, auction: false})
     
-    
-    const vehicleDeleted = await VehicleRepository.delete(vehicle[0].id)
-    
-    console.log(vehicle[0])
-    console.log("Chegou")
-
-    return vehicleDeleted
+   
+    return "Anúncio desativado com sucesso!"
 
 }
 

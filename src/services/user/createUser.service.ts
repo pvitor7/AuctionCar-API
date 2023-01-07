@@ -7,6 +7,7 @@ import {
 } from "../../interfaces/user.interface";
 import UserRepository from "../../repositories/user.repository";
 
+
 const createUserServive = async ({
   name,
   celphone,
@@ -19,6 +20,7 @@ const createUserServive = async ({
   }
   
 
+  console.log("Chegou")
 
   const emailAlreadyExisty = await UserRepository.findByEmail(email);
 

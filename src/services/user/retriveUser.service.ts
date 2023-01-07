@@ -17,6 +17,9 @@ const retriveUserService = async (id: string) => {
         throw new AppError("Usuário não encontrado!", 404)
 
     }
+
+    
+
     return user
 }
 

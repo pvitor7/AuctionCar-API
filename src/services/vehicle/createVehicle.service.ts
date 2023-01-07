@@ -36,12 +36,11 @@ const createVehicleService = async (
   const user = await userRepository.findOneBy({ id: id });
 
   if (!user) {
-    throw new AppError("User not found", 404);
+    throw new AppError("Usuário não encontrado!", 404);
   }
   if (
     !heading ||
     !categorie ||
-    !status ||
     !year ||
     !km ||
     !price ||
@@ -50,6 +49,7 @@ const createVehicleService = async (
   ) {
     throw new AppError("Illegal arguments", 400);
   }
+
 
   let category: Category | null = await CategoryRepository.findOneByCategory(
     categorie
@@ -67,7 +67,7 @@ const createVehicleService = async (
 
   const vehicle = new Vehicle();
   vehicle.heading = heading;
-  vehicle.status = status ? true : false;
+  vehicle.status = true;
   vehicle.year = year;
   vehicle.km = km;
   vehicle.price = price;

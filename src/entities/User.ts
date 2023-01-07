@@ -50,13 +50,6 @@ class User {
         eager: true
     })
     offers: Offers[]
-
-    // constructor(){
-    //     if(!this.id){
-    //         this.id = uuid();
-    //     }
-    // }
-
 }
 
 export default User;

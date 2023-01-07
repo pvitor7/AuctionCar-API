@@ -12,7 +12,7 @@ const user = Router();
 
 user.post("/register", schemaValidation(registerSchema), createUserController)
 
-user.get("/vehicles", AuthMiddleware,retriveUserController)
+user.get("/:id", AuthMiddleware,retriveUserController)
 
 user.get("", listUserController)
 

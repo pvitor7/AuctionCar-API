@@ -3,7 +3,7 @@ import Vehicle from "../entities/Vehicle";
 
 class VehicleRepository {
   static VehicleRepo = AppDataSource.getRepository(Vehicle);
-
+  
   static async find() {
     return await this.VehicleRepo.find();
   }
@@ -23,7 +23,7 @@ class VehicleRepository {
   }
 
   static async delete(id: string) {
-    return await this.VehicleRepo.delete({ id });
+    return await this.VehicleRepo.delete(id);
    }
 }
 
