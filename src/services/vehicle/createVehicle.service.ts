@@ -51,9 +51,7 @@ const createVehicleService = async (
   }
 
 
-  let category: Category | null = await CategoryRepository.findOneByCategory(
-    categorie
-  );
+  let category: Category | null = await CategoryRepository.findOneBy({categorie});
 
   if (!category) {
     const newCategory = new Category();

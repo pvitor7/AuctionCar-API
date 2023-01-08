@@ -24,12 +24,11 @@ const retriveVehicleController = async (req: Request, res: Response) => {
             published,
             auction,
             img,
-            gallery,
             categorie,
             dateAuction,
           } = req.body;
 
-        const vehicleUpdate = await updateVehicleService(userId, idVehicle,   {
+        const vehicleUpdate = await updateVehicleService(userId, idVehicle, 
             heading,
             status,
             year,
@@ -39,10 +38,9 @@ const retriveVehicleController = async (req: Request, res: Response) => {
             published,
             auction,
             img,
-            gallery,
             categorie,
             dateAuction,
-          })
+          )
         return res.status(200).json(vehicleUpdate)
     }
 }

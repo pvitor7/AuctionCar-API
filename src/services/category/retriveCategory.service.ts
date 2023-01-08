@@ -4,14 +4,14 @@ import { AppError } from "../../erros/AppError";
 
 const retriveCategoryService = async (name: string) => {
 
-    const vehicleRepository = AppDataSource.getRepository(Category);
+    const categoryRepository = AppDataSource.getRepository(Category);
   
-    const category = await vehicleRepository.findOne({ 
-      where: {
-        categorie: name
-      } 
+    const category = await categoryRepository.findBy({
+      categorie: name
+     
     });
   
+
     if ( !category ) {
       throw new AppError("Category not found", 404);
     }

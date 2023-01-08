@@ -170,8 +170,6 @@ describe("Teste de rota de usuários", () => {
   });
 
 
-
-
   test("Testando login com senha com email maior do que 30 caracteres", async () => {
     const loginResp = await request(app).post(`/login`).send({email: "test12345678987654321012345678910@email.com", password: "Pass12345678987", confirmPassword: "Pass12345678987"});
     expect(loginResp.body.message).toBe("O email deve ter no máximo 30 caracteres!");

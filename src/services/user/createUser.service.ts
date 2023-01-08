@@ -19,9 +19,6 @@ const createUserServive = async ({
     throw new AppError("Illegal arguments", 400);
   }
   
-
-  console.log("Chegou")
-
   const emailAlreadyExisty = await UserRepository.findByEmail(email);
 
   if (emailAlreadyExisty) {

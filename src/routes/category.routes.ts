@@ -15,6 +15,6 @@ category.get("/:name", retriveCategoryController)
 
 category.get("/list/:id", retriveCategoryController)
 
-category.get("/motorcycle", retriveCategoryMottoController)
+// category.get("/motorcycle", retriveCategoryMottoController)
 
 export default category

@@ -14,8 +14,8 @@ class CategoryRepository{
         return await this.CategoryRepo.save(category)
     }
 
-    static async findOneByCategory(category: string):Promise<Category | null>{
-        return await this.CategoryRepo.findOneBy({categorie: category});
+    static async findOneBy(data: Object):Promise<Category | null>{
+        return await this.CategoryRepo.findOneBy(data);
     }
 }
 
